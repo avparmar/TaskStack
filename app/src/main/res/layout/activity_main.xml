@@ -10,19 +10,61 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.zopzoob.taskstack.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/griddles"
+        android:layout_marginTop="100dp">
 
-    <Button
-        android:text="Button"
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="View \n Statistics!"
+            android:id="@+id/button1" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button2"
+            android:text="Create a \n New Task!" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Search \n Tasks!"
+            android:id="@+id/button3" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:id="@+id/button4"
+            android:text="View or \n Complete\n Tasks!" />
+    </GridLayout>
+
+    <TextView
+        android:text="Welcome!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="127dp"
-        android:id="@+id/button"
-        android:onClick="tapped" />
+        android:layout_marginTop="37dp"
+        android:id="@+id/textView"
+        android:textSize="30dp" />
 </RelativeLayout>
