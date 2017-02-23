@@ -16,6 +16,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateTask"></activity>
+        <activity android:name=".StackPanel"></activity>
     </application>
 
 </manifest>

@@ -27,13 +27,25 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="150dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_gravity="fill"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            android:text="Work On Something!"
+            android:id="@+id/getTasks" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
@@ -43,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_row="0"
+            android:layout_row="1"
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
@@ -54,22 +66,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:text="Search \n Tasks!"
+            android:text="Create a \n New Tag"
             android:id="@+id/button3" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:layout_row="0"
+            android:layout_row="1"
             android:layout_gravity="fill"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:id="@+id/button4"
-            android:text="View or \n Complete\n Tasks!" />
+            android:text="View or \n Complete\n Tasks!"
+            android:onClick="goToStack" />
     </GridLayout>
 
 </RelativeLayout>

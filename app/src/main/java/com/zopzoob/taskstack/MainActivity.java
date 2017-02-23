@@ -16,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    protected void goToStack(View view) {
+        Intent intent = new Intent(getApplicationContext(), StackPanel.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         deadline        2
         status          3 (to do real agile-y stuff by "working" on several tasks for a period of time
         reward          4
+
+
+        ALSO
+
+        I want to add a button that gives you a random task and you can specify tags or whatever too
 
          */
         mastermind.execSQL("CREATE TABLE IF NOT EXISTS TasksV1 (title VARCHAR, description VARCHAR, id INTEGER PRIMARY KEY)");
