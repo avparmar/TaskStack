@@ -44,4 +44,39 @@
         android:layout_marginBottom="60dp"
         android:id="@+id/submitButton"
         android:onClick="makeTask" />
+
+    <Button
+        android:text="temp log"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/submitButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="26dp"
+        android:layout_marginStart="26dp"
+        android:id="@+id/tempBut"
+        android:onClick="makeLogs" />
+
+    <Button
+        android:text="del rec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/submitButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="22dp"
+        android:layout_marginEnd="22dp"
+        android:id="@+id/tempbut2"
+        android:onClick="clearStack" />
+
+    <Button
+        android:text="get hi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tempbut2"
+        android:layout_alignLeft="@+id/tempbut2"
+        android:layout_alignStart="@+id/tempbut2"
+        android:layout_marginBottom="37dp"
+        android:id="@+id/tempbut3"
+        android:onClick="getHi" />
 </RelativeLayout>
