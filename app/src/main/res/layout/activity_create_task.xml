@@ -28,12 +28,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
+        android:id="@+id/enterDesc"
+        android:hint="Enter a Description"
         android:layout_below="@+id/enterName"
         android:layout_alignLeft="@+id/enterName"
-        android:layout_alignStart="@+id/enterName"
-        android:layout_marginTop="45dp"
-        android:id="@+id/enterDesc"
-        android:hint="Enter a Description" />
+        android:layout_alignStart="@+id/enterName" />
 
     <Button
         android:text="Submit"
@@ -79,4 +78,17 @@
         android:layout_marginBottom="37dp"
         android:id="@+id/tempbut3"
         android:onClick="getHi" />
+
+    <Button
+        android:id="@+id/selectTags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/enterDesc"
+        android:layout_alignLeft="@+id/enterDesc"
+        android:layout_alignRight="@+id/enterDesc"
+        android:layout_alignStart="@+id/enterDesc"
+        android:layout_below="@+id/enterDesc"
+        android:layout_marginTop="37dp"
+        android:onClick="selectTags"
+        android:text="Select Tags" />
 </RelativeLayout>

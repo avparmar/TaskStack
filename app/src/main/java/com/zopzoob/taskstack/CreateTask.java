@@ -1,14 +1,21 @@
 package com.zopzoob.taskstack;
 
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.CursorAdapter;
 import android.widget.EditText;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by avparmar on 2/17/17.
@@ -19,6 +26,9 @@ import android.widget.Toast;
 public class CreateTask extends AppCompatActivity {
 
     private SQLiteDatabase mastermind;
+    private int numTags;
+    private boolean[] checked;
+    private String[] tagsList;
 
     protected void getHi(View view) {
         try {
@@ -71,6 +81,23 @@ public class CreateTask extends AppCompatActivity {
 
     }
 
+    protected void selectTags(View view) {
+
+
+        new AlertDialog.Builder(this)
+                .setMultiChoiceItems(tagsList, checked, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                        checked[which] = isChecked;
+                    }
+                })
+                .setTitle("Select Tags")
+                .setPositiveButton("Done",null)
+                .show();
+
+
+    }
+
     protected void makeTask(View view) {
         EditText tName = (EditText) findViewById(R.id.enterName);
         EditText tDesc = (EditText) findViewById(R.id.enterDesc);
@@ -85,6 +112,19 @@ public class CreateTask extends AppCompatActivity {
 
         try {
             mastermind.execSQL("INSERT INTO TasksV1 (title,description) VALUES ('" + name + "','" + desc + "')");
+
+            Cursor cid = mastermind.rawQuery("SELECT id FROM TasksV1 ORDER BY id DESC LIMIT 1", null);
+
+            cid.moveToFirst();
+            int id = cid.getInt(cid.getColumnIndex("id"));
+            cid.close();
+
+            for (int i = 0; i < numTags; i++) {
+                if (checked[i]) {
+                    tagsList[i].replace(' ','_');
+                    mastermind.execSQL("INSERT INTO " + tagsList[i] + " (taskID) VALUES (" + id + ")");
+                }
+            }
 
 
         }
@@ -104,6 +144,30 @@ public class CreateTask extends AppCompatActivity {
 
         mastermind = openOrCreateDatabase("Mastermind", MODE_PRIVATE, null);
         Intent intent = getIntent();
+
+
+        try {
+            Cursor c = mastermind.rawQuery("SELECT COUNT(name) num FROM tags", null);
+            c.moveToFirst();
+            numTags = c.getInt(c.getColumnIndex("num"));
+            checked = new boolean[numTags];
+
+            tagsList = new String[numTags];
+            Cursor c2 = mastermind.rawQuery("SELECT * FROM tags", null);
+
+            c2.moveToFirst();
+            int i = 0;
+            while (c != null) {
+                tagsList[i] = c2.getString(c2.getColumnIndexOrThrow("name"));
+                tagsList[i].replace('_', ' ');
+                c2.moveToNext();
+                i++;
+            }
+            Arrays.fill(checked, false);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }

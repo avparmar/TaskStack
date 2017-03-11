@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".CreateTask"></activity>
         <activity android:name=".StackPanel"></activity>
+        <activity android:name=".CreateTag"></activity>
 
     </application>
 

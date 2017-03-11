@@ -21,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    protected void whipUpSomeTags(View view) {
+        Intent intent = new Intent(getApplicationContext(), CreateTag.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         mastermind.execSQL("CREATE TABLE IF NOT EXISTS due_today (taskID INT)");
         mastermind.execSQL("CREATE TABLE IF NOT EXISTS school (taskID INT)");
         mastermind.execSQL("CREATE TABLE IF NOT EXISTS misc (taskID INT)");
+        mastermind.execSQL("CREATE TABLE IF NOT EXISTS tags (name VARCHAR)");
 
     }
 
