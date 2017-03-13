@@ -34,3 +34,4 @@ Task assignment:
   1. make it
   2. allow users to filter what tasks they want to get 
   
+Next up: filter tasks in the list screen 
